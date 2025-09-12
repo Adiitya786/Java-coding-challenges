@@ -1,17 +1,30 @@
 public class Prime_no{
 
-    public static boolean checkprime(int n,int i){
-        if(i ==n/2){
-            return true;
+    public static void checkprime(int fst,int last,int i,int trav){
+        if(trav ==last){
+            return;
         }
-        if(n%i == 0){
-            return false;
+        if(i >(int)Math.sqrt(trav)){
+            System.out.print(trav+" ");
+            checkprime(fst,last,2,trav+1);
+            return;
+           
+        }
+        if(trav==2){
+            System.out.print(trav+" ");
+             checkprime(fst,last,2,trav+1);
+            return;
+        }
+        if(trav%i == 0){ 
+           checkprime(fst,last,2,trav+1);
+            
+           return;
         }
        
-        return  checkprime(n,i+1);
+         checkprime(fst,last,i+1,trav);
         }
     
-    public static void main(String[] args) {
-        System.out.println(checkprime(67,2));
+    public static void main(String[]  args) {
+       checkprime(1,50,2,2);
     }
 }
