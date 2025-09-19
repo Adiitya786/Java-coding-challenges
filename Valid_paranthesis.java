@@ -16,19 +16,24 @@ public class Valid_paranthesis {
                     return false;
                 }
                 //closing
-                if(s.peek() =='{' && ch =='}' || s.peek() =='(' && ch == ')' || s.peek() =='[' &&  ch == ']'){
+                if(s.peek() =='{' && ch =='}' || s.peek() =='(' && ch == ')' 
+                || s.peek() =='[' &&  ch == ']'){
                     s.pop();
                 }
+                else{
+                    return false;
+                }
              }
+            }
              // s is empty...?
              if(s.isEmpty()){
                 return true;
              }
-        }
+        
         return false;
     }
     public static void main(String[] args) {
-        String str = ")";
+        String str = "{()})";
         System.out.println(isValid(str));
     }
 }
